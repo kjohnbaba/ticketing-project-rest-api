@@ -59,8 +59,7 @@ public class ProjectServiceImpl implements ProjectService {
 
         Project project = projectMapper.convertToEntity(dto);
         projectRepository.save(project);
-
-
+        
     }
 
     @Override
@@ -72,8 +71,6 @@ public class ProjectServiceImpl implements ProjectService {
         convertedProject.setProjectStatus(project.getProjectStatus());
 
         projectRepository.save(convertedProject);
-
-
 
     }
 
@@ -121,10 +118,7 @@ public class ProjectServiceImpl implements ProjectService {
             obj.setUnfinishedTaskCounts(taskService.totalNonCompletedTask(project.getProjectCode()));
             obj.setCompleteTaskCounts(taskService.totalCompletedTask(project.getProjectCode()));
 
-
             return obj;
-
-
 
         }).collect(Collectors.toList());
     }

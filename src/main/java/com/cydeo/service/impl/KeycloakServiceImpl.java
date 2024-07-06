@@ -45,13 +45,12 @@ public class KeycloakServiceImpl implements KeycloakService {
         keycloakUser.setEmailVerified(true);
         keycloakUser.setEnabled(true);
 
-
         Keycloak keycloak = getKeycloakInstance();
 
         RealmResource realmResource = keycloak.realm(keycloakProperties.getRealm());
         UsersResource usersResource = realmResource.users();
 
-        // Create Keycloak user
+        // This part creates Keycloak user
         Response result = usersResource.create(keycloakUser);
 
         String userId = getCreatedId(result);
