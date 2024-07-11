@@ -11,10 +11,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @Slf4j
 public class PerformanceAspect {
-
-    //Logger log = LoggerFactory.getLogger(PerformanceAspect.class);
-
-
+    
     @Pointcut("@annotation(com.cydeo.annotation.ExecutionTime)")
     private void anyExecutionTimeOperation(){}
 

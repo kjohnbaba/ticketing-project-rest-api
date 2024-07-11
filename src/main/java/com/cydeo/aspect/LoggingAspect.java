@@ -15,8 +15,6 @@ import org.springframework.security.core.context.SecurityContextHolder;
 @Slf4j
 public class LoggingAspect {
 
-    //Logger log = LoggerFactory.getLogger(LoggingAspect.class);
-
     private String getUserName(){
         Authentication authentication  = SecurityContextHolder.getContext().getAuthentication();
         SimpleKeycloakAccount details = (SimpleKeycloakAccount) authentication.getDetails();
