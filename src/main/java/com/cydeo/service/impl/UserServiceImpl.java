@@ -70,13 +70,9 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserDTO update(UserDTO dto) {
 
-        //Find current user
         User user = userRepository.findByUserName(dto.getUserName());
-        //Map updated user dto to entity object
         User convertedUser = userMapper.convertToEntity(dto);
-        //set id to converted object
         convertedUser.setId(user.getId());
-        //save updated user
         userRepository.save(convertedUser);
 
         return findByUserName(dto.getUserName());
@@ -129,5 +125,4 @@ public class UserServiceImpl implements UserService {
 
         return users.stream().map(userMapper::convertToDTO).collect(Collectors.toList());
     }
-
 }
