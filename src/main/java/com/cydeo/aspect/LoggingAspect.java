@@ -4,6 +4,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.*;
 import org.keycloak.adapters.springsecurity.account.SimpleKeycloakAccount;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -14,6 +16,8 @@ import org.springframework.security.core.context.SecurityContextHolder;
 @Configuration
 @Slf4j
 public class LoggingAspect {
+
+    //Logger log = LoggerFactory.getLogger(LoggingAspect.class);
 
     private String getUserName(){
         Authentication authentication  = SecurityContextHolder.getContext().getAuthentication();
